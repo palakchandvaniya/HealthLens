@@ -28,10 +28,14 @@ app.use(
     origin(origin, callback) {
       if (!origin) return callback(null, true);
 
+      const allowedOrigins = [
+        "https://health-lens-beta.vercel.app",
+      ];
+
       const isLocalDevelopmentOrigin =
         /^https?:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin);
 
-      if (isLocalDevelopmentOrigin) {
+      if (isLocalDevelopmentOrigin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
@@ -150,3 +154,4 @@ async function start() {
 }
 
 start();
+
