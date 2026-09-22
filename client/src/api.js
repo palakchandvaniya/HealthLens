@@ -1,4 +1,4 @@
-const API = "/api";
+const API = "https://healthlens-ru2h.onrender.com/api";
 
 async function request(path, options = {}) {
   const token = localStorage.getItem("healthlens_token");
